@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, Tahoma, Verdana;
+    background-color: white;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    color: black;
+}
+
+#sobre-mi, #proyectos, #habilidades, #formacion, #contacto {
+    background-color: grey;
+    border: 1px solid black;
+    padding: 20px;
+    margin: 20px 10px 20px 5px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.destacado {
+    background-color: #e0f7fa;
+    border: 2px solid #006064;
+}
+
+.tabla-bonita {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.tabla-bonita th, .tabla-bonita td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+.tabla-bonita th {
+    background-color: white;
+    color: black;
+}
