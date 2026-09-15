@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="MiPrimerServerDeAplicacionKevinApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <option name="ALLOW_RUNNING_IN_PARALLEL" value="false" />
+    <option name="ACTIVE_PROFILES" />
+    <option name="INCLUDE_PROVIDED_SCOPE" value="true" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.MiPrimerServerDeAplicacionKevin.MiPrimerServerDeAplicacionKevinApplication" />
+    <module name="MiPrimerServerDeAplicacionKevin" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
