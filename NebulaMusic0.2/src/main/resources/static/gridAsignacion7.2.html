@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        .contenedor{
+        display: grid;
+        height: 100vh;
+        grid-template-columns: 200px 1fr;
+        grid-template-rows: 1fr 1fr 3fr 3fr 1fr;
+        gap: 10px;
+        padding: 10px;
+        background: #F44336;
+        }
+
+        .contenedor div{
+        border: 2px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        color: black;
+        }
+
+        .header{
+        grid-area:1/1/2/3;
+        background-color:#F48FB1;
+        }
+
+        .nav{
+        grid-area:2/1/3/3;
+
+        background-color: #E1BEE7;
+        }
+
+        .aside{
+        grid-area:3/1/5/2;
+        background-color: #90CAF9;
+        }
+
+        .content{
+        grid-area:3/2/4/3;
+        background-color: #A5D6A7;
+        }
+
+        .section{
+        grid-area:4/2/5/3;
+        background-color:#FFB74D;
+        }
+
+        .footer{
+        grid-area:5/1/6/3;
+        background-color: #BDBDBD;
+        }
+    </style>
+
+</head>
+<body>
+<div class="contenedor">
+    <div class = "header">Header</div>
+    <div class = "nav">Navigation</div>
+    <div class = "aside">Aside</div>
+    <div class = "content">Content</div>
+    <div class = "section">Section</div>
+    <div class = "footer">Footer</div>
+</div>
+
+</body>
+</html>
