@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mis cosas</title>
+    <meta name="viewport" content="width=device-width">
+
+    <style>
+        .contenedor{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 150px);
+        gap: 10px;
+        padding: 10px;
+        background: #f9f9f9;
+        }
+
+        .contenedor img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border: 2px solid black;
+        }
+
+        .foto-grande{
+        grid-column: span 2;
+        grid-row: span 2;
+        }
+
+        .foto-ancha{
+        grid-column: span 2;
+        }
+
+        @media(max-width: 600px){
+            .contenedor{
+            grid-template-columns:1fr 1fr;
+            }
+        }
+    </style>
+
+</head>
+<body>
+<div class="contenedor">
+
+    <img src="imgs/hearthstone.jpg" alt="mi hobby son los videojuegos" class="foto-ancha">
+    <img src="imgs/gato.jpg" alt="me gusta esto">
+    <img src="imgs/ramen.jpg" alt="mi comida favorita">
+    <img src="imgs/daftpunk.jpg" alt="musica que escucho">
+    <img src="imgs/natacion.jpg" alt="deporte que practico" class="foto-ancha">
+    <img src="imgs/slumdog.jpg" alt="pelicula recientemente vista">
+    <img src="imgs/insurgency.jpg" alt="también me gusta jugar Insurgency, pero me banearon" class="foto-grande">
+    <img src="imgs/furby.jpg" alt="foto bonus de un furby" class="foto-grande">
+</div>
+
+</body>
+</html>
