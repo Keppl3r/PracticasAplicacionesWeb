@@ -1,0 +1,459 @@
+/* ==========================================================
+   NÉBULA MUSIC - ESTILOS
+   ========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+/* ==========================================================
+   1 - PALETA Y BASE
+   ========================================================== */
+:root {
+    --bg-color-dark: #131200;      /* Fondo principal modo oscuro */
+    --text-color-dark: #EDF2F4;    /* Texto principal */
+    --links-color-dark: #EFBDEB;   /* Color normal de enlaces */
+    --links-hover-dark: #8D91C7;   /* Color de enlaces al pasar el mouse */
+    --nav-links: #8d3fd1;          /* Morado: botones */
+    --highlight: #EDF67D;          /* Amarillo: acento */
+    --card-bg-dark: #1c1a05;       /* Tarjetas y formularios */
+    --radius: 12px;                /* Esquinas redondeadas */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+    font-family: 'Quicksand', sans-serif;
+    line-height: 1.6;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);   /* ningún hijo puede ser más ancho que la pantalla */
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+a {
+    color: var(--links-color-dark);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--links-hover-dark);
+}
+
+/* ==========================================================
+   2 - NAV + MENÚ HAMBURGUESA (Mobile First)
+   ========================================================== */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(19, 18, 0, 0.95);
+    padding: 15px 30px;
+    border-bottom: 2px solid #2a280a;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+/* Base = móvil: la hamburguesa se ve */
+.menu-button {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 30px;
+    cursor: pointer;
+}
+
+.menu-button span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: var(--text-color-dark);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Base = móvil: menú en columna, oculto debajo de la barra */
+nav ul {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    gap: 20px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+    background-color: rgba(19, 18, 0, 0.98);
+}
+
+nav a {
+    color: var(--text-color-dark);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--highlight);
+}
+
+/* Checkbox marcado -> se muestra el menú */
+#menu-toggle:checked ~ ul {
+    display: flex;
+}
+
+/* X: primero se mueve 8px (3px alto + 5px gap) y luego rota */
+#menu-toggle:checked ~ .menu-button span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+#menu-toggle:checked ~ .menu-button span:nth-child(2) {
+    opacity: 0;
+}
+
+#menu-toggle:checked ~ .menu-button span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ==========================================================
+   3 - HERO (cabecera de index)
+   ========================================================== */
+.principal {
+    position: relative;
+}
+
+.principal img {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.principal h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    padding: 0 20px;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.principal h1 span {
+    color: var(--highlight);
+}
+
+/* ==========================================================
+   4 - TARJETAS DE NOVEDADES
+   ========================================================== */
+main {
+    max-width: 1200px;
+    width: 100%;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+#news {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+#news article {
+    background-color: var(--card-bg-dark);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid #2a280a;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+#news article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+#news article img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+#news article .content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+#news article h3 {
+    color: var(--highlight);
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+}
+
+#news article p {
+    font-size: 0.9rem;
+    color: #cbd5e0;
+}
+
+/* ==========================================================
+   5 - FORMULARIOS (login y registro)
+   ========================================================== */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+/* Base = móvil: menos padding */
+.auth-card {
+    background-color: var(--card-bg-dark);
+    width: 100%;
+    max-width: 420px;
+    padding: 30px 20px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    border: 1px solid #2a280a;
+    transition: max-width 0.3s ease;
+}
+
+.form-logo {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.form-logo img {
+    height: 80px;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-header h1 {
+    font-size: 1.8rem;
+    color: var(--text-color-dark);
+}
+
+.form-subtitle {
+    font-size: 0.9rem;
+    color: #f9f9f9;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #cbd5e0;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: var(--radius);
+    border: 1px solid #444;
+    background-color: #2a280a;
+    color: var(--text-color-dark);
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.95rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--highlight);
+    box-shadow: 0 0 8px rgba(237, 246, 125, 0.3);
+}
+
+/* Borde morado sólo en campos de texto requeridos (no en radio/checkbox) */
+input[type="text"]:required,
+input[type="email"]:required,
+input[type="password"]:required,
+input[type="date"]:required,
+select:required {
+    border-left: 4px solid var(--nav-links);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #888;
+    font-style: italic;
+}
+
+/* Si los radios no caben en una línea, bajan a la siguiente */
+.radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    align-items: center;
+}
+
+.radio-group input[type="radio"],
+.checkbox-group input[type="checkbox"] {
+    accent-color: var(--highlight);
+    cursor: pointer;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.radio-group label,
+.checkbox-group label {
+    margin-bottom: 0;
+    font-size: 0.85rem;
+}
+
+/* ==========================================================
+   6 - BOTONES
+   ========================================================== */
+button {
+    width: 100%;
+    padding: 14px;
+    border-radius: var(--radius);
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    font-family: inherit;
+}
+
+.btn-primary {
+    background-color: var(--nav-links);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--highlight);
+    color: black;
+    box-shadow: 0 0 15px rgba(237, 246, 125, 0.4);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 1px solid #cbd5e0;
+    color: #cbd5e0;
+}
+
+.btn-secondary:hover {
+    background-color: #cbd5e0;
+    color: black;
+}
+
+/* ==========================================================
+   7 - FOOTER Y PÁGINA DE ERROR
+   ========================================================== */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.85rem;
+    color: #cbd5e0;
+    border-top: 1px solid #2a280a;
+    align-self: end;
+}
+
+footer a,
+.form-footer a {
+    color: var(--highlight);
+    text-decoration: underline;
+}
+
+.form-footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+.error-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.error-container h1 {
+    font-size: 4rem;
+    color: var(--highlight);
+}
+
+/* ==========================================================
+   8 - MEDIA QUERIES (Mobile First: de menor a mayor)
+   ========================================================== */
+
+/* Tablet */
+@media (width >= 768px) {
+    .auth-card {
+        max-width: 550px;
+        padding: 40px 30px;
+    }
+
+    .principal img {
+        height: 300px;
+    }
+
+    .principal h1 {
+        font-size: 2.5rem;
+    }
+
+    /* Menú de escritorio: se oculta la hamburguesa y el ul vuelve a la barra */
+    .menu-button {
+        display: none;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        width: auto;
+        padding: 0;
+        gap: 25px;
+        background-color: transparent;
+    }
+}
+
+/* Escritorio */
+@media (width >= 1024px) {
+    .principal img {
+        height: 380px;
+    }
+
+    .principal h1 {
+        font-size: 3rem;
+    }
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nébula Music - Iniciar Sesión</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+
+<main class="auth-container">
+    <section class="auth-card">
+        <div class="form-logo">
+            <img src="/imgs/nebula-03.svg" alt="Logo Nébula">
+        </div>
+
+        <div class="form-header">
+            <h1>Inicia Sesión</h1>
+            <p class="form-subtitle">Ingresa tus credenciales de acceso</p>
+        </div>
+
+        <form method="post" action="/autenticacion" enctype="application/x-www-form-urlencoded">
+            <div class="form-group">
+                <label for="correo">Correo Electrónico</label>
+                <input
+                        type="email"
+                        id="correo"
+                        name="correo"
+                        placeholder="correo@ejemplo.com"
+                        required
+                        minlength="5"
+                        maxlength="100"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="contrasenia">Contraseña</label>
+                <input
+                        type="password"
+                        id="contrasenia"
+                        name="contrasenia"
+                        placeholder="********"
+                        required
+                        minlength="8"
+                        autocomplete="off"
+                >
+            </div>
+
+            <div>
+                <button type="submit" class="btn-primary">Iniciar Sesión</button>
+                <button type="reset" class="btn-secondary">Cancelar</button>
+            </div>
+        </form>
+
+        <p class="form-footer">
+            ¿Aún no tienes cuenta? <a href="registro.html">Regístrate</a>
+        </p>
+    </section>
+</main>
+
+<footer>
+    <p>Copyright Nébula Music 2025. Todos los derechos reservados.</p>
+    <a href="#">Términos y condiciones</a>
+</footer>
+
+</body>
+</html>
