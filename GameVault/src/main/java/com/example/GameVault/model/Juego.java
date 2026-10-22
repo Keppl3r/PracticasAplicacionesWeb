@@ -5,34 +5,39 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
+// @Entity mapea esta clase a la tabla "juegos" en MySQL.
+@Data // Lombok genera getters/setters; Thymeleaf los usa en ${juego.titulo}.
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="juegos")
+@Table(name = "juegos")
 public class Juego {
 
+    // Llave primaria con AUTO_INCREMENT.
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    // nullable = false: la BD rechaza juegos sin título.
     @Column(nullable = false)
     private String titulo;
 
-    @Column(length = 1000)
+    @Column(length = 1000) // Permite descripciones largas.
     private String descripcion;
 
+    // Guarda la URL de Cloudinary o el nombre del archivo local.
     @Column(name = "portada_url")
     private String portadaUrl;
 
     @Column
-    private String categoria;
-
-    @Column
     private Double precio;
 
+    @Column
+    private String categoria;
 
+    // Dueño del juego (muchos juegos → un usuario); úsalo para validar permisos.
     @ManyToOne
-    @JoinColumn(name="usuarios_id")
+    @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 }
+
